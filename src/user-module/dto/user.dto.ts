@@ -6,6 +6,7 @@ export class UserDto {
     name: string;
 
     @IsEmail()
+    @IsString()
     @IsDefined()
     email: string;
 
