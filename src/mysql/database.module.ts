@@ -9,7 +9,7 @@ import { User } from './entity/user.entity';
       host: 'localhost',
       port: 3306,
       username: 'root',
-      password: 'root',
+      password: 'Software12&',
       database: 'test',
       entities: [User],
       synchronize: true,

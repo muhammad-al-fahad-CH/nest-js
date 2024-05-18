@@ -6,9 +6,11 @@ import { CustomerDTO } from './dto';
 
 @Injectable()
 export class CustomerService {
-  constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>) {}
+  constructor(
+    @InjectModel('Customer') private readonly customerModel: Model<Customer>,
+  ) {}
 
-  public async listCustomer(): Promise<Customer []> {
+  public async listCustomer(): Promise<Customer[]> {
     return await this.customerModel.find();
   }
 
@@ -21,7 +23,10 @@ export class CustomerService {
     return await this.customerModel.findById(id).exec();
   }
 
-  public async updateCustomer(id: string, customer: Partial<CustomerDTO>): Promise<Customer> {
+  public async updateCustomer(
+    id: string,
+    customer: Partial<CustomerDTO>,
+  ): Promise<Customer> {
     return await this.customerModel.findByIdAndUpdate(id, customer);
   }
 

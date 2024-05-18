@@ -7,11 +7,11 @@ export class AppController {
 
   @Get()
   getUser(): string {
-    return "get user info";
+    return 'get user info';
   }
 
   @Post()
   postUser(): string {
-    return "send user info";
+    return 'send user info';
   }
 }

@@ -1,4 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Post, Put, Res } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Res,
+} from '@nestjs/common';
 import { CustomerService } from './customer.service';
 import { Response } from 'express';
 import { CustomerDTO } from './dto';
@@ -26,7 +35,11 @@ export class CustomerController {
   }
 
   @Put(':id')
-  async updateCustomer(@Param('id') id: string, @Body() customer: CustomerDTO, @Res() res: Response) {
+  async updateCustomer(
+    @Param('id') id: string,
+    @Body() customer: CustomerDTO,
+    @Res() res: Response,
+  ) {
     const data = await this.customerService.updateCustomer(id, customer);
     return res.status(200).send(data);
   }
