@@ -5,4 +5,5 @@ export const DEFAULT_CONFIG: ConfigData = {
   port: 3000,
   db: undefined,
   logLevel: 'info',
+  // redis: undefined,
 };

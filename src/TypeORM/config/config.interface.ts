@@ -13,6 +13,12 @@ export interface ConfigDBData {
   collate: string;
 }
 
+// export interface ConfigRedis {
+//   url: string;
+//   retryAttempts: number;
+//   retryDelay: number;
+// }
+
 /**
  * Configuration data for the app.
  */
@@ -30,4 +36,5 @@ export interface ConfigData {
    * @example 'verbose', 'info', 'warn', 'error'
    */
   logLevel: string;
+  // redis?: ConfigRedis;
 }
