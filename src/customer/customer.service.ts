@@ -9,7 +9,7 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CustomerService {
-  constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>) {}
+  constructor(@InjectRepository(User) private readonly userRepository: Repository<User>, @InjectModel('Customer') private readonly customerModel: Model<Customer>) {}
 
   public async listCustomer(): Promise<Customer []> {
     return await this.customerModel.find();
