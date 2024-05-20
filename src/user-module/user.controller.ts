@@ -1,4 +1,22 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, ParseBoolPipe, ParseIntPipe, Post, Query, UsePipes, Req, Res, ValidationPipe, UseFilters, BadRequestException, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  ParseBoolPipe,
+  ParseIntPipe,
+  Post,
+  Query,
+  UsePipes,
+  Req,
+  Res,
+  ValidationPipe,
+  UseFilters,
+  BadRequestException,
+  UseGuards,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './interface/user';
 import { UserDto } from './dto/user.dto';
@@ -22,19 +40,19 @@ export class UserController {
     @Query('sort', ParseBoolPipe) sort: boolean,
     @Body() user: UserDto,
     @Req() req: Request,
-    @Res() res: Response
+    @Res() res: Response,
   ) {
-    const body = req.body;
-    const query = req.query;
-    const params = req.params;
-    const headers = req.headers;
-    const cookies = req.cookies;
-    const ip = req.ip;
-    const method = req.method;
-    const path = req.path;
-    const hostname = req.hostname;
-    const protocol = req.protocol;
-    const url = req.url;
+    // const body = req.body;
+    // const query = req.query;
+    // const params = req.params;
+    // const headers = req.headers;
+    // const cookies = req.cookies;
+    // const ip = req.ip;
+    // const method = req.method;
+    // const path = req.path;
+    // const hostname = req.hostname;
+    // const protocol = req.protocol;
+    // const url = req.url;
 
     const users = this.userService.getUsers();
     return res.status(200).json({ users });

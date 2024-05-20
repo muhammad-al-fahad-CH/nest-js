@@ -9,14 +9,10 @@ import { Repository } from 'typeorm';
 
 @Injectable()
 export class CustomerService {
-  // constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>) {}
-  constructor(
-    @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-  ) {}
+  constructor(@InjectModel('Customer') private readonly customerModel: Model<Customer>) {}
 
-  public async listCustomer(): Promise<User[]> {
-    return await this.userRepository.find();
+  public async listCustomer(): Promise<Customer []> {
+    return await this.customerModel.find();
   }
 
   public async addCustomer(customer: CustomerDTO): Promise<User> {
@@ -29,10 +25,8 @@ export class CustomerService {
     return await this.userRepository.findOne({ where: { id: numberId } });
   }
 
-  public async updateCustomer(id: string, customer: Partial<CustomerDTO>): Promise<User> {
-    const numberId = parseInt(id)
-    await this.userRepository.update(id, customer);
-    return await this.userRepository.findOne({ where: { id: numberId } });
+  public async updateCustomer(id: string, customer: Partial<CustomerDTO>): Promise<Customer> {
+    return await this.customerModel.findByIdAndUpdate(id, customer);
   }
 
   public async deleteCustomer(id: string): Promise<User> {

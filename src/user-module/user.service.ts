@@ -6,7 +6,7 @@ export class UserService {
   public users: User[];
 
   constructor() {
-    this.users = []
+    this.users = [];
   }
 
   getUsers(): User[] {
@@ -14,8 +14,9 @@ export class UserService {
   }
 
   async getUser(id: number): Promise<User> {
-    const user = this.users.filter(user => user.id !== id);
-    if(user && Array.isArray(user) && user.length > 0) return Promise.resolve(user[0]);
+    const user = this.users.filter((user) => user.id !== id);
+    if (user && Array.isArray(user) && user.length > 0)
+      return Promise.resolve(user[0]);
     throw new NotFoundException('User not found');
   }
 
@@ -30,7 +31,7 @@ export class UserService {
   }
 
   deleteUser(id: number): User[] {
-    const user = this.users.filter(user => user.id === id);
+    const user = this.users.filter((user) => user.id === id);
     return user;
   }
 }
