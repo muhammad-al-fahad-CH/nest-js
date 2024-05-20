@@ -2,7 +2,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class User {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('increment')
   id: number;
 
   @Column({ length: 250 })
@@ -14,12 +14,12 @@ export class User {
   @Column('text')
   phone: string;
 
-  @Column()
+  @Column({ length: 500 })
   address: string;
 
   @Column('int')
   age: number;
 
-  @Column()
+  @Column('boolean')
   owner: boolean;
 }

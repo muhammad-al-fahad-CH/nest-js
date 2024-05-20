@@ -8,7 +8,7 @@ import { CustomerModule } from './customer/customer.module';
 import { MySQLModule } from './mysql/database.module';
 
 @Module({
-  imports: [UserModule, TaskModule, MongoDBModule, MySQLModule, CustomerModule],
+  imports: [UserModule, TaskModule, MySQLModule, CustomerModule],
   controllers: [AppController],
   providers: [AppService],
 })
